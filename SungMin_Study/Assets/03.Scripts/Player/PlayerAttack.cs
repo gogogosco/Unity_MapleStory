@@ -6,9 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     Animator animator;
     private PlayerInput playerInput;
-    private float curTime;
-    [SerializeField]
-    private float coolTime = 0.5f;
+    private float attackTime = 1.0f; // 공격 애니메이션 실행 시간
 
     void Start()
     {
@@ -18,16 +16,19 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if(curTime <= 0 && playerInput.p_isAttack == true)
+        if(playerInput.p_isAttack == true)
         {
-            Debug.Log("공격!");
-            animator.SetTrigger("attack");
-            curTime = coolTime;
-            playerInput.p_isAttack = false;
+            StartCoroutine("Attack");                  
         }
-        else
-        {
-            curTime -= Time.deltaTime;
-        }
+    }
+
+    IEnumerator Attack()
+    {
+        animator.SetBool("attack", true);
+        Debug.Log("공격!");
+
+        yield return new WaitForSeconds(attackTime); // 공격 애니메이션 진행 시간
+        playerInput.p_isAttack = false;
+        animator.SetBool("attack", false);
     }
 }
