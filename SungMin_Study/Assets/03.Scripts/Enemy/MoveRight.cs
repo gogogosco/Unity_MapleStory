@@ -22,7 +22,6 @@ public class MoveRight : State
         }
     }
 
-
     public void OnExit()
     {
 

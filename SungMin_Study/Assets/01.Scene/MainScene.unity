@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 275295266}
   - component: {fileID: 275295267}
   - component: {fileID: 275295268}
+  - component: {fileID: 275295269}
   - component: {fileID: 275295262}
   - component: {fileID: 275295261}
   - component: {fileID: 275295264}
@@ -566,8 +567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1106603d7465c47a2a74d03eb0aadd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 275295261}
-  rend: {fileID: 0}
 --- !u!114 &275295267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +589,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 482061e57d1fd554184c9d63ffae8f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &275295269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275295260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7814ee9dbbe9cb4c8a5efcbb2f64a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &294341002
@@ -2638,6 +2649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648736068}
   - component: {fileID: 1648736069}
+  - component: {fileID: 1648736070}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -2673,6 +2685,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireBall: {fileID: 3269363526105703021, guid: 4ad64550b322d5e40abbf7ebc09adcc3,
     type: 3}
+  coolTime: 1
+--- !u!114 &1648736070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648736067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482061e57d1fd554184c9d63ffae8f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1666279198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,7 +2899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768706902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.43, y: -1.29, z: -14.71211}
+  m_LocalPosition: {x: 1.43, y: -1.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1910733758}
@@ -2920,7 +2945,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

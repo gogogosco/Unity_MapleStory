@@ -5,13 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rigid;
-
-    //[SerializeField]
     private PlayerInput playerInput; // Input Manager
-
-    public Animator animator;
-    public SpriteRenderer rend;
-
 
     private float moveSpeed = 4.0f; // 이동 속도
     private float JumpPower = 6.0f; // 점프 파워
@@ -19,8 +13,6 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
-        rend = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
     }
@@ -29,7 +21,6 @@ public class PlayerMove : MonoBehaviour
     {
         Move(); // 이동
         Jump(); // 점프
-        AnimationController(); // 애니메이션
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,8 +31,6 @@ public class PlayerMove : MonoBehaviour
             JumpCount = 0;
         }
     }
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void Jump()
     {
@@ -58,21 +47,10 @@ public class PlayerMove : MonoBehaviour
         if(playerInput.p_isAttack == false)
         {
             if (playerInput.p_moveVector.x > 0) // 좌우반전
-                rend.flipX = false;
+                this.transform.localScale = new Vector3(1, 1, 1);
             else if (playerInput.p_moveVector.x < 0)
-                rend.flipX = true;
+                this.transform.localScale = new Vector3(-1, 1, 1);
             this.transform.Translate(playerInput.p_moveVector * moveSpeed * Time.deltaTime); // 플레이어 이동
         }      
-    }
-
-    private void AnimationController()
-    {
-        if (playerInput.p_moveVector.x != 0) //걷기 애니메이션
-            animator.SetBool("walk", true);
-        else animator.SetBool("walk", false);
-
-        if (playerInput.p_isJumping == true) //점프 애니메이션
-            animator.SetBool("jump", true);
-        else animator.SetBool("jump", false);
     }
 }
